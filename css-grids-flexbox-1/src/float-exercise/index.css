@@ -11,5 +11,38 @@ html {
 }
 
 body {
+  background-color: #2d3436;
   font-family: Arial, Geneva, sans-serif;
+}
+
+.wrapper {
+  background-color: #d63031;
+  margin: auto;
+  max-width: 1000px;
+}
+
+.grid {
+  overflow: hidden;
+  max-width: 100%;
+  width: 100%;
+}
+
+[class*='grid-col-'] {
+  float: left;
+}
+
+.grid-col-1 {
+  width: 25%;
+}
+
+.grid-col-2 {
+  width: 50%;
+}
+
+.grid-col-3 {
+  width: 75%;
+}
+
+.grid-col-4 {
+  width: 100%;
 }
