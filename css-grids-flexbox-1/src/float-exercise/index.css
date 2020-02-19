@@ -27,20 +27,43 @@ body {
   width: 100%;
 }
 
+.post__image {
+  width: 212px;
+}
+
 [class*='grid-col-'] {
   float: left;
 }
 
+[class*='grid-col-'] * {
+  max-width: 100%;
+}
+
+[class*='grid-col-']:not(:last-child) {
+  margin-right: 5%;
+}
+
+/*
+  (100% - ((totalColumns - 1) * margin-right)) / totalColumns
+  (100% - ((4 - 1) * 5%)) / 4
+*/
 .grid-col-1 {
-  width: 25%;
+  width: 21.25%;
 }
 
+/*
+  (100% - ((totalColumns - 1) * margin-right)) / totalColumns
+  (100% - ((2 - 1) * 5%)) / 2
+*/
 .grid-col-2 {
-  width: 50%;
+  width: 47.5%;
 }
 
+/*
+  100% - (21.25% + 5%)
+*/
 .grid-col-3 {
-  width: 75%;
+  width: 73.75%;
 }
 
 .grid-col-4 {
