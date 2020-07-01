@@ -1,0 +1,121 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #2d3436;
+  font-family: Arial, Geneva, sans-serif;
+}
+
+.wrapper {
+  background-color: #d63031;
+  margin: auto;
+  max-width: 1000px;
+}
+
+.grid {
+  display: flex;
+  flex-flow: row wrap;
+  overflow: hidden;
+  max-width: 100%;
+  width: 100%;
+}
+
+.grid-col-1,
+.grid-col-2,
+.grid-col-3,
+.grid-col-4 {
+  flex: 0 0 100%;
+}
+
+.post {
+  border: 5px dotted yellowgreen;
+}
+
+.post__image {
+  max-width: 100%;
+  width: 212px;
+}
+
+@media (min-width: 768px) {
+  .grid-col-1,
+  .grid-col-2 {
+    flex: 0 0 47.5%;
+  }
+
+  .grid-col-2:not(:nth-child(2n)),
+  .grid-col-1:not(:nth-child(2n)) {
+    margin-right: 5%;
+  }
+
+  .grid-col-1:last-child {
+    margin-right: 0;
+  }
+
+  .col-grow-1 {
+    order: -1;
+    flex-basis: 100%;
+  }
+
+  .post {
+    height: 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  /*
+    (100% - ((totalColumns - 1) * margin-right)) / totalColumns
+    (100% - ((4 - 1) * 5%)) / 4
+  */
+  .grid-col-1 {
+    flex: 0 0 21.25%;
+  }
+
+  .col-grow-1 {
+    order: 0;
+    flex-basis: 47.5%;
+  }
+
+  .grid-col-1:not(:nth-child(4n)) {
+    margin-right: 5%;
+  }
+
+  .grid-col-1:last-child {
+    margin-right: 0;
+  }
+
+  /*
+    (100% - ((totalColumns - 1) * margin-right)) / totalColumns
+    (100% - ((2 - 1) * 5%)) / 2
+  */
+  .grid-col-2 {
+    flex: 0 0 47.5%;
+  }
+
+  .grid-col-2:not(:nth-child(2n)) {
+    margin-right: 5%;
+  }
+
+  .grid-col-2:last-child {
+    margin-right: 0;
+  }
+
+  /*
+    100% - (21.25% + 5%)
+  */
+  .grid-col-3 {
+    flex: 0 0 73.75%;
+  }
+
+  .grid-col-4 {
+    flex: 0 0 100%;
+  }
+}
