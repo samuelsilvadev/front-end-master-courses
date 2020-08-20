@@ -1,0 +1,127 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #09cdd1;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(https://raw.githubusercontent.com/jen4web/fem-layout/master/day-1-flexbox/4-pie-flexbox/begin/img/clouds.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.wrapper {
+  max-width: 90%;
+  height: 100%;
+  margin: auto;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.navigation {
+  background-image: url(https://raw.githubusercontent.com/jen4web/fem-layout/master/day-1-flexbox/4-pie-flexbox/begin/img/scallop.png);
+  background-repeat: repeat-x;
+  display: flow-root;
+}
+
+.navigation__list {
+  background-color: #e6be97;
+  display: flex;
+  list-style: none;
+  padding: 20px;
+  margin-top: 12px;
+  border-bottom: 3px solid #cc8850;
+}
+
+.navigation__list li {
+  margin-right: 30px;
+}
+
+.navigation__list a {
+  color: #c80060;
+  text-decoration: none;
+}
+
+.main {
+  display: flex;
+  background-color: #fff6e0;
+  padding: 30px;
+  flex-direction: column;
+}
+
+.main__article {
+  flex-shrink: 0;
+  margin-right: 9;
+  width: 100%;
+}
+
+.article__text {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.article__text__content {
+  margin-bottom: 30px;
+}
+
+.footer {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #09cdd1;
+}
+
+.copy {
+  margin: 10px 0;
+}
+
+@media (min-width: 768px) {
+  .article__text {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+
+  .article__text__content {
+    margin-bottom: 0;
+    margin-right: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    flex-direction: row;
+  }
+
+  .main__article {
+    flex-shrink: 0;
+    margin-right: 50px;
+    width: 70%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .wrapper {
+    max-width: 70%;
+  }
+}
