@@ -15,6 +15,8 @@ const theme = {
 			maxWidth: '960px',
 			m: 0,
 			mx: 'auto',
+			pl: [2, 2, 0],
+			pr: [2, 2, 0],
 		},
 	},
 	styles: roboto.styles,
