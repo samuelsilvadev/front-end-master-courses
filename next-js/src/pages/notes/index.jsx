@@ -2,10 +2,7 @@
 
 import { jsx } from 'theme-ui';
 import Link from 'next/link';
-
-const NOTES = new Array(15)
-	.fill(1)
-	.map((e, i) => ({ id: i, title: `This is my note ${i}` }));
+import PropTypes from 'prop-types';
 
 const styles = {
 	innerWrapper: {
@@ -31,11 +28,13 @@ const styles = {
 };
 
 function Notes(props) {
+	const { notes = [], ...remainingProps } = props;
+
 	return (
-		<div {...props}>
+		<div {...remainingProps}>
 			<h1>My Notes</h1>
 			<ul sx={styles.innerWrapper}>
-				{NOTES.map((note) => (
+				{notes.map((note) => (
 					<li key={note.id} sx={styles.noteWrapper}>
 						<Link href="/notes/[id]" as={`/notes/${note.id}`}>
 							<a sx={styles.link}>
@@ -49,6 +48,24 @@ function Notes(props) {
 			</ul>
 		</div>
 	);
+}
+
+Notes.propTypes = {
+	notes: PropTypes.array,
+};
+
+export async function getServerSideProps() {
+	const response = await fetch(`${process.env.API}/notes`);
+
+	if (response.ok) {
+		const { data } = (await response.json()) || {};
+
+		if (data) {
+			return { props: { notes: data } };
+		}
+	}
+
+	return { props: { notes: [] } };
 }
 
 export default Notes;
