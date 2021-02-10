@@ -9,7 +9,8 @@
 		"build": "next build",
 		"start": "next start",
 		"format": "prettier . --write  --loglevel=error",
-		"lint": "eslint .  --ext=js,jsx --fix"
+		"lint": "eslint .  --ext=js,jsx --fix",
+		"deploy": "vercel"
 	},
 	"dependencies": {
 		"@theme-ui/presets": "^0.3.5",
@@ -30,6 +31,7 @@
 		"eslint-plugin-react-hooks": "^4.2.0",
 		"next-env": "^1.1.1",
 		"prettier": "^2.2.1",
-		"prop-types": "^15.7.2"
+		"prop-types": "^15.7.2",
+		"vercel": "^21.2.3"
 	}
 }
