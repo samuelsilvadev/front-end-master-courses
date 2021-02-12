@@ -3,10 +3,11 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
     "prettier",
     "prettier/react"
   ],
-  "plugins": [],
+  "plugins": ["import", "jsx-a11y"],
   "parserOptions": {
     "ecmaVersion": 2021,
     "sourceType": "module",
@@ -23,5 +24,9 @@
     "react": {
       "version": "detect"
     }
+  },
+  "rules": {
+    "no-console": "warn",
+    "import/no-commonjs": "error"
   }
 }
