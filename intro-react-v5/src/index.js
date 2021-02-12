@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 
-import Pet from "./Pet";
+import Pet from "components/pet";
 
 const App = () => {
   return (
