@@ -1,13 +1,13 @@
 import React from "react";
 import { render } from "react-dom";
 
-import Pet from "components/pet";
+import SearchParams from "components/search-params";
 
 const App = () => {
   return (
     <div>
       <h1>Adopt me</h1>
-      <Pet name="Python" type="Cat" breed="husky" />
+      <SearchParams />
     </div>
   );
 };
