@@ -27,6 +27,8 @@
   },
   "rules": {
     "no-console": "warn",
-    "import/no-commonjs": "error"
+    "import/no-commonjs": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
