@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "@reach/router";
 
 const DEFAULT_IMG_PLACEHOLDER = "http://placecorgi.com/300/300";
 
 const Pet = ({ id, name, breed, medias, location, type }) => {
   return (
-    <a href={`/details/${id}`} className="pet">
+    <Link to={`/details/${id}`} className="pet">
       <section>
         <picture className="image-container">
           <img src={medias?.[0]?.small ?? DEFAULT_IMG_PLACEHOLDER} alt={name} />
@@ -15,7 +16,7 @@ const Pet = ({ id, name, breed, medias, location, type }) => {
           <h2>{`${type} - ${breed} - ${location}`}</h2>
         </div>
       </section>
-    </a>
+    </Link>
   );
 };
 
