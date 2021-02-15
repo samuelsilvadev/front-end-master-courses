@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "NODE_ENV=development parcel src/index.html",
+    "dev:mock": "cross-env PET_MOCK=mock yarn dev",
     "format": "prettier . --write --loglevel=error",
     "lint": "eslint \"src/**/*.{js, jsx}\" --quiet"
   },
@@ -12,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.22.1",
