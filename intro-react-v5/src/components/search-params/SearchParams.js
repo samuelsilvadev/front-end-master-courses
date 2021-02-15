@@ -7,6 +7,7 @@ const SearchParams = () => {
   const [location, setLocation] = useState("Seattle, WA");
   const [breeds, setBreeds] = useState([]);
   const [hasApiError, setApiError] = useState(false);
+  const [, setAnimals] = useState([]);
 
   const [animal, AnimalDropdown] = useDropdown({
     label: "Animal",
@@ -14,7 +15,7 @@ const SearchParams = () => {
     initialState: "dog",
   });
 
-  const [, BreedDropdown, setBreed] = useDropdown({
+  const [breed, BreedDropdown, setBreed] = useDropdown({
     label: "Breed",
     options: breeds,
     initialState: "",
@@ -41,14 +42,36 @@ const SearchParams = () => {
     };
   }, [animal, setBreed]);
 
+  useEffect(() => {
+    if (breeds.length > 0 && !breed) {
+      setBreed(breeds[0]);
+    }
+  }, [breeds, breed, setBreed]);
+
+  const getAnimals = async () => {
+    const { animals } = await petAPI.animals({
+      location,
+      breed,
+      type: animal,
+    });
+
+    setAnimals(animals ?? []);
+  };
+
   const handleSetLocation = (event) => {
     setLocation(event.target.value);
+  };
+
+  const handleAnimalSearchSubmit = (event) => {
+    event.preventDefault();
+
+    getAnimals();
   };
 
   return (
     <div className="search-params">
       {hasApiError && <p role="alert">Something went wront, try again!</p>}
-      <form>
+      <form onSubmit={handleAnimalSearchSubmit}>
         <label htmlFor="location">
           Location
           <input
