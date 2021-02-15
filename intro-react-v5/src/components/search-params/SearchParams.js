@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import petAPI, { ANIMALS } from "@frontendmasters/pet";
 
+import PetResults from "components/pet-results";
+
 import useDropdown from "hooks/use-dropdown";
 
 const SearchParams = () => {
   const [location, setLocation] = useState("Seattle, WA");
   const [breeds, setBreeds] = useState([]);
   const [hasApiError, setApiError] = useState(false);
-  const [, setAnimals] = useState([]);
+  const [animals, setAnimals] = useState([]);
 
   const [animal, AnimalDropdown] = useDropdown({
     label: "Animal",
@@ -86,6 +88,7 @@ const SearchParams = () => {
         <BreedDropdown />
         <button>Submit</button>
       </form>
+      <PetResults pets={animals} />
     </div>
   );
 };
