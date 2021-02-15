@@ -8,7 +8,7 @@ import React, { useState } from "react";
  * @param {string} options.initialState
  * @param {Array} options.options
  *
- * @returns {[string, Node]}
+ * @returns {[string, Node, function]}
  */
 const useDropdown = ({ label, initialState, options = [] } = {}) => {
   const [state, setState] = useState(initialState);
@@ -39,7 +39,7 @@ const useDropdown = ({ label, initialState, options = [] } = {}) => {
     </label>
   );
 
-  return [state, DropDown];
+  return [state, DropDown, setState];
 };
 
 export default useDropdown;
