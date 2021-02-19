@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import petAPI from "@frontendmasters/pet";
 
+import Carousel from "components/carousel";
+
 class Details extends React.Component {
   constructor(props) {
     super(props);
@@ -55,14 +57,15 @@ class Details extends React.Component {
       );
     }
 
-    const { type, name, breed, location, description } = this.state;
+    const { type, name, breed, location, description, medias } = this.state;
 
     return (
       <section className="details">
+        <Carousel medias={medias} />
         <div>
           <h1>{name}</h1>
           <h2>{`${type} - ${breed} - ${location}`}</h2>
-          <button>Adopt me</button>
+          <button className="details-btn">Adopt me</button>
           <p>{description}</p>
         </div>
       </section>
