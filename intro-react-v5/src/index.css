@@ -137,6 +137,10 @@ header {
   margin: 5px 0px 20px 0px;
 }
 
+.details p {
+  text-align: center;
+}
+
 .carousel {
   display: flex;
   justify-content: space-around;
