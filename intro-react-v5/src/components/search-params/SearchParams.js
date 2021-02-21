@@ -4,12 +4,14 @@ import petAPI, { ANIMALS } from "@frontendmasters/pet";
 import PetResults from "components/pet-results";
 
 import useDropdown from "hooks/use-dropdown";
+import { useTheme } from "hooks/theme";
 
 const SearchParams = () => {
   const [location, setLocation] = useState("Seattle, WA");
   const [breeds, setBreeds] = useState([]);
   const [hasApiError, setApiError] = useState(false);
   const [animals, setAnimals] = useState([]);
+  const [theme, setTheme] = useTheme();
 
   const [animal, AnimalDropdown] = useDropdown({
     label: "Animal",
@@ -22,6 +24,16 @@ const SearchParams = () => {
     options: breeds,
     initialState: "",
   });
+
+  const [buttonTheme, ButtonThemeDropDown] = useDropdown({
+    label: "Theme",
+    options: ["red", "green", "peru", "hotpink", "darkblue"],
+    initialState: theme.buttonColor,
+  });
+
+  useEffect(() => {
+    setTheme({ buttonColor: buttonTheme });
+  }, [buttonTheme, setTheme]);
 
   useEffect(() => {
     (async () => {
@@ -86,7 +98,8 @@ const SearchParams = () => {
         </label>
         <AnimalDropdown />
         <BreedDropdown />
-        <button>Submit</button>
+        <ButtonThemeDropDown />
+        <button style={{ backgroundColor: theme.buttonColor }}>Submit</button>
       </form>
       <PetResults pets={animals} />
     </div>

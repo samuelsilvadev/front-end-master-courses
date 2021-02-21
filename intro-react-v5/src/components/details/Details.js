@@ -4,6 +4,7 @@ import petAPI from "@frontendmasters/pet";
 
 import Carousel from "components/carousel";
 import { withErrorBoundary } from "components/error-boundary";
+import { ThemeContext } from "hooks/theme";
 
 class Details extends React.Component {
   constructor(props) {
@@ -66,7 +67,18 @@ class Details extends React.Component {
         <div>
           <h1>{name}</h1>
           <h2>{`${type} - ${breed} - ${location}`}</h2>
-          <button className="details-btn">Adopt me</button>
+          <ThemeContext.Consumer>
+            {([theme]) => {
+              return (
+                <button
+                  style={{ backgroundColor: theme.buttonColor }}
+                  className="details-btn"
+                >
+                  Adopt me
+                </button>
+              );
+            }}
+          </ThemeContext.Consumer>
           <p>{description}</p>
         </div>
       </section>
