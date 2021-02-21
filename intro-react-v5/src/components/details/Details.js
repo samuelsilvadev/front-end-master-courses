@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import petAPI from "@frontendmasters/pet";
 
 import Carousel from "components/carousel";
+import { withErrorBoundary } from "components/error-boundary";
 
 class Details extends React.Component {
   constructor(props) {
@@ -77,4 +78,4 @@ Details.propTypes = {
   id: PropTypes.string,
 };
 
-export default Details;
+export default withErrorBoundary(Details);
