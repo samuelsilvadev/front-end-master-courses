@@ -3,8 +3,10 @@ import PropTypes from "prop-types";
 import petAPI from "@frontendmasters/pet";
 
 import Carousel from "components/carousel";
+import Modal from "components/modal";
 import { withErrorBoundary } from "components/error-boundary";
 import { ThemeContext } from "hooks/theme";
+import { navigate } from "@reach/router";
 
 class Details extends React.Component {
   constructor(props) {
@@ -13,7 +15,11 @@ class Details extends React.Component {
     this.state = {
       isLoading: true,
       hasApiError: false,
+      isModalOpen: false,
     };
+
+    this.toggleModal = this.toggleModal.bind(this);
+    this.adopt = this.adopt.bind(this);
   }
 
   async componentDidMount() {
@@ -24,7 +30,15 @@ class Details extends React.Component {
 
       try {
         const { animal } = await petAPI.animal(parsedId);
-        const { name, photos, type, description, contact, breeds } = animal;
+        const {
+          name,
+          photos,
+          type,
+          description,
+          contact,
+          breeds,
+          url,
+        } = animal;
 
         this.setState({
           isLoading: false,
@@ -35,11 +49,20 @@ class Details extends React.Component {
           description,
           location: `${contact.address.city}, ${contact.address.state}`,
           breed: breeds?.primary,
+          url,
         });
       } catch {
         this.setState({ isLoading: false, hasApiError: true });
       }
     }
+  }
+
+  toggleModal() {
+    this.setState({ isModalOpen: !this.state.isModalOpen });
+  }
+
+  adopt() {
+    navigate(this.state.url);
   }
 
   render() {
@@ -59,28 +82,59 @@ class Details extends React.Component {
       );
     }
 
-    const { type, name, breed, location, description, medias } = this.state;
+    const {
+      type,
+      name,
+      breed,
+      location,
+      description,
+      medias,
+      isModalOpen,
+    } = this.state;
 
     return (
       <section className="details">
         <Carousel medias={medias} />
-        <div>
-          <h1>{name}</h1>
-          <h2>{`${type} - ${breed} - ${location}`}</h2>
-          <ThemeContext.Consumer>
-            {([theme]) => {
-              return (
+        <ThemeContext.Consumer>
+          {([theme]) => (
+            <>
+              <div>
+                <h1>{name}</h1>
+                <h2>{`${type} - ${breed} - ${location}`}</h2>
                 <button
                   style={{ backgroundColor: theme.buttonColor }}
                   className="details-btn"
+                  onClick={this.toggleModal}
                 >
                   Adopt me
                 </button>
-              );
-            }}
-          </ThemeContext.Consumer>
-          <p>{description}</p>
-        </div>
+
+                <p>{description}</p>
+              </div>
+              {isModalOpen ? (
+                <Modal>
+                  <section>
+                    <h1>Would you consider adopting me?</h1>
+                    <div className="buttons">
+                      <button
+                        onClick={this.adopt}
+                        style={{ backgroundColor: theme.buttonColor }}
+                      >
+                        Yes
+                      </button>
+                      <button
+                        style={{ backgroundColor: theme.buttonColor }}
+                        onClick={this.toggleModal}
+                      >
+                        No
+                      </button>
+                    </div>
+                  </section>
+                </Modal>
+              ) : null}
+            </>
+          )}
+        </ThemeContext.Consumer>
       </section>
     );
   }
