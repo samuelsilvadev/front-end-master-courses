@@ -6,8 +6,8 @@
 	"scripts": {
 		"webpack": "webpack",
 		"debug": "node --inspect --inspect-brk ./node_modules/webpack/bin/webpack.js",
-		"dev": "yarn webpack --env.mode development --watch",
-		"prod": "yarn webpack --env.mode production",
+		"dev": "yarn webpack-dev-server --env.mode development --watch",
+		"prod": "rimraf dist && yarn webpack --env.mode production",
 		"dev:debug": "yarn debug --env.mode development",
 		"prod:debug": "yarn debug --env.mode production"
 	},
@@ -24,6 +24,7 @@
 		"mini-css-extract-plugin": "^0.8.0",
 		"postcss-loader": "^3.0.0",
 		"prettier": "^2.2.1",
+		"rimraf": "^3.0.2",
 		"style-loader": "^0.23.1",
 		"ts-loader": "^6.0.4",
 		"typescript": "^3.5.3",
@@ -31,6 +32,8 @@
 		"webpack": "^4.39.1",
 		"webpack-bundle-analyzer": "^3.4.1",
 		"webpack-cli": "^3.3.6",
+		"webpack-dev-server": "^3.11.2",
+		"webpack-merge": "^5.7.3",
 		"webpack-node-externals": "^1.7.2",
 		"workbox-webpack-plugin": "^4.3.1"
 	},
