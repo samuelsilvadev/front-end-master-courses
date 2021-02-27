@@ -1,6 +1,10 @@
-module.exports = {
-	mode: 'none',
-	output: {
-		filename: 'bundle.js',
-	},
+module.exports = (env) => {
+	const { mode = 'none' } = env;
+
+	return {
+		mode,
+		output: {
+			filename: 'bundle.js',
+		},
+	};
 };

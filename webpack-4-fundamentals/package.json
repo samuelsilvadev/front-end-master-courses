@@ -6,10 +6,10 @@
 	"scripts": {
 		"webpack": "webpack",
 		"debug": "node --inspect --inspect-brk ./node_modules/webpack/bin/webpack.js",
-		"dev": "yarn webpack --mode development --watch",
-		"prod": "yarn webpack --mode production",
-		"dev:debug": "yarn debug --mode development",
-		"prod:debug": "yarn debug --mode production"
+		"dev": "yarn webpack --env.mode development --watch",
+		"prod": "yarn webpack --env.mode production",
+		"dev:debug": "yarn debug --env.mode development",
+		"prod:debug": "yarn debug --env.mode production"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.5.5",
