@@ -5,6 +5,18 @@ const webpackMerge = require('webpack-merge');
 const webpackConfig = (mode) =>
 	mode !== 'none' ? require(`./config/webpack.${mode}`)(mode) : {};
 
+const loadPresets = (env) => {
+	const { presets } = env;
+
+	/** @type {string[]} */
+	const flattenedPresets = [].concat(...[presets]);
+	const builtPresets = flattenedPresets.map((preset) => {
+		return require(`./config/presets/webpack.${preset}`)(env);
+	});
+
+	return webpackMerge.merge({}, ...builtPresets);
+};
+
 module.exports = (env) => {
 	const { mode = 'none' } = env;
 
@@ -31,6 +43,7 @@ module.exports = (env) => {
 			},
 			plugins: [new HtmlWebpackPlugin(), new webpack.ProgressPlugin()],
 		},
-		webpackConfig(mode)
+		webpackConfig(mode),
+		loadPresets(env)
 	);
 };

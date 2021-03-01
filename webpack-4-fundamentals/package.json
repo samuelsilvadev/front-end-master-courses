@@ -7,7 +7,9 @@
 		"webpack": "webpack",
 		"debug": "node --inspect --inspect-brk ./node_modules/webpack/bin/webpack.js",
 		"dev": "yarn webpack-dev-server --env.mode development --watch",
+		"dev:preset:typescript": "yarn dev --env.presets typescript",
 		"prod": "yarn webpack --env.mode production",
+		"prod:preset:typescript": "yarn prod --env.presets typescript",
 		"dev:debug": "yarn debug --env.mode development",
 		"prod:debug": "yarn debug --env.mode production"
 	},
