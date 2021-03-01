@@ -10,6 +10,7 @@
 		"dev:preset:typescript": "yarn dev --env.presets typescript",
 		"prod": "yarn webpack --env.mode production",
 		"prod:preset:typescript": "yarn prod --env.presets typescript",
+		"prod:preset:analyze": "yarn prod --env.presets analyze",
 		"dev:debug": "yarn debug --env.mode development",
 		"prod:debug": "yarn debug --env.mode production"
 	},
@@ -32,7 +33,7 @@
 		"typescript": "^3.5.3",
 		"url-loader": "^2.1.0",
 		"webpack": "^4.39.1",
-		"webpack-bundle-analyzer": "^3.4.1",
+		"webpack-bundle-analyzer": "^4.4.0",
 		"webpack-cli": "^3.3.6",
 		"webpack-dev-server": "^3.11.2",
 		"webpack-merge": "^5.7.3",
