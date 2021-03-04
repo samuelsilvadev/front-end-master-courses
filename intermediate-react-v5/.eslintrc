@@ -7,7 +7,7 @@
     "prettier",
     "prettier/react"
   ],
-  "plugins": ["import", "jsx-a11y"],
+  "plugins": ["import", "jsx-a11y", "@emotion"],
   "parserOptions": {
     "ecmaVersion": 2021,
     "sourceType": "module",
@@ -29,6 +29,7 @@
     "no-console": "warn",
     "import/no-commonjs": "error",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "@emotion/jsx-import": "error"
   }
 }
