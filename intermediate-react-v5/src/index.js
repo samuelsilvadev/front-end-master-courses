@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import { render } from "react-dom";
 import { Router } from "@reach/router";
 
 import SearchParams from "components/search-params";
-import Details from "components/details";
 
 import { ThemeContext } from "hooks/theme";
 import Header from "components/header";
+
+const Details = lazy(() => import("components/details"));
 
 const App = () => {
   const theme = useState({ buttonColor: "green" });
@@ -16,10 +17,12 @@ const App = () => {
       <ThemeContext.Provider value={theme}>
         <div>
           <Header />
-          <Router>
-            <Details path="/details/:id" />
-            <SearchParams path="/" />
-          </Router>
+          <Suspense fallback={<h1>Loading route...</h1>}>
+            <Router>
+              <Details path="/details/:id" />
+              <SearchParams path="/" />
+            </Router>
+          </Suspense>
         </div>
       </ThemeContext.Provider>
     </React.StrictMode>
