@@ -1,13 +1,15 @@
 {
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
     "prettier",
     "prettier/react"
   ],
-  "plugins": ["import", "jsx-a11y", "@emotion"],
+  "plugins": ["import", "jsx-a11y", "@emotion", "@typescript-eslint"],
   "parserOptions": {
     "ecmaVersion": 2021,
     "sourceType": "module",
