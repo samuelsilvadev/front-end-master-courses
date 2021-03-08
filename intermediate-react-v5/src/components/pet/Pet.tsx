@@ -1,10 +1,25 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 
 const DEFAULT_IMG_PLACEHOLDER = "http://placecorgi.com/300/300";
 
-const Pet = ({ id, name, breed, medias, location, type }) => {
+interface Props {
+  id: number;
+  name: string;
+  breed: string;
+  medias: { small: string; medium: string; large: string; full: string }[];
+  location: string;
+  type: number;
+}
+
+const Pet = ({
+  id,
+  name,
+  breed,
+  medias,
+  location,
+  type,
+}: Props): JSX.Element => {
   return (
     <Link to={`/details/${id}`} className="pet">
       <section>
@@ -18,22 +33,6 @@ const Pet = ({ id, name, breed, medias, location, type }) => {
       </section>
     </Link>
   );
-};
-
-Pet.propTypes = {
-  name: PropTypes.string.isRequired,
-  breed: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
-  type: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  medias: PropTypes.arrayOf(
-    PropTypes.shape({
-      small: PropTypes.string,
-      medium: PropTypes.string,
-      large: PropTypes.string,
-      full: PropTypes.string,
-    })
-  ),
 };
 
 export default Pet;
