@@ -1,6 +1,9 @@
 import { createContext, useContext } from "react";
 
-type ThemeContextType = [Record<string, string>, () => void];
+type ThemeContextType = [
+  Record<string, string>,
+  (theme?: Record<string, string>) => void
+];
 
 export const ThemeContext = createContext<ThemeContextType>([
   { buttonColor: "green" },
