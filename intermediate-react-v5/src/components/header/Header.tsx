@@ -1,4 +1,5 @@
 /** @jsx jsx */
+
 import { Link } from "@reach/router";
 import styled from "@emotion/styled";
 import { jsx, css, keyframes } from "@emotion/react";
@@ -18,7 +19,7 @@ const StyledHeader = styled.header`
   margin-bottom: 20px;
 `;
 
-const Header = () => (
+const Header = (): JSX.Element => (
   <StyledHeader>
     <Link to="/">Adopt me</Link>
     <span
