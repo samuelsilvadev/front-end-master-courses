@@ -1,22 +1,27 @@
-import React, { useState } from "react";
+import React, { Dispatch, FunctionComponent, useState } from "react";
+
+type Options = {
+  label: string;
+  initialState: string;
+  options: string[];
+};
+
+type UseDropDownReturn = [string, FunctionComponent, Dispatch<string>];
 
 /**
  * Creates a generic Dropdown component.
- *
- * @param {Object} options
- * @param {string} options.label
- * @param {string} options.initialState
- * @param {Array} options.options
- *
- * @returns {[string, Node, function]}
  */
-const useDropdown = ({ label, initialState, options = [] } = {}) => {
+const useDropdown = ({
+  label,
+  initialState,
+  options = [],
+}: Options): UseDropDownReturn => {
   const [state, setState] = useState(initialState);
 
   const normalizedLabel = label.replace(/\s/, "").toLowerCase();
   const id = `use-dropdown-${normalizedLabel}`;
 
-  const handleSetState = (event) => {
+  const handleSetState = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setState(event.target.value);
   };
 
