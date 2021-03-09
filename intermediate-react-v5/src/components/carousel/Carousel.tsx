@@ -1,10 +1,19 @@
 import React from "react";
-import PropTypes from "prop-types";
+import type { Photo } from "@frontendmasters/pet";
 
 const DEFAULT_IMG_PLACEHOLDER = "http://placecorgi.com/600/600";
 
-class Carousel extends React.Component {
-  constructor(props) {
+type Props = {
+  medias?: Photo[];
+};
+
+type State = {
+  medias: string[];
+  active: number;
+};
+
+class Carousel extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
@@ -15,7 +24,7 @@ class Carousel extends React.Component {
     this.handleSetActiveMedia = this.handleSetActiveMedia.bind(this);
   }
 
-  static getDerivedStateFromProps(props) {
+  static getDerivedStateFromProps(props: Props): Partial<State> {
     const { medias } = props;
 
     const largeMedias = medias?.map((media) => media.large) ?? [
@@ -27,13 +36,13 @@ class Carousel extends React.Component {
     };
   }
 
-  handleSetActiveMedia(event) {
+  handleSetActiveMedia(event: React.MouseEvent<HTMLButtonElement>): void {
     this.setState({
-      active: +event.currentTarget.dataset.index,
+      active: +(event.currentTarget.dataset?.index ?? 0),
     });
   }
 
-  render() {
+  render(): React.ReactNode {
     const { medias, active } = this.state;
 
     return (
@@ -67,9 +76,5 @@ class Carousel extends React.Component {
     );
   }
 }
-
-Carousel.propTypes = {
-  medias: PropTypes.array,
-};
 
 export default Carousel;
