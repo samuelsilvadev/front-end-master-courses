@@ -1,9 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { PropsWithChildren } from "react";
 import { Link } from "@reach/router";
 
-class ErrorBoundary extends React.Component {
-  constructor(props) {
+type Props = PropsWithChildren<Record<string, unknown>>;
+
+type State = {
+  hasError: boolean;
+};
+
+class ErrorBoundary extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
@@ -11,13 +16,13 @@ class ErrorBoundary extends React.Component {
     };
   }
 
-  static getDerivedStateFromError() {
+  static getDerivedStateFromError(): State {
     return {
       hasError: true,
     };
   }
 
-  render() {
+  render(): React.ReactNode {
     if (this.state.hasError) {
       return (
         <div className="global-error" role="alert">
@@ -31,12 +36,8 @@ class ErrorBoundary extends React.Component {
   }
 }
 
-ErrorBoundary.propTypes = {
-  children: PropTypes.node,
-};
-
-export function withErrorBoundary(Component) {
-  return function WithErrorBoundary(props) {
+export function withErrorBoundary<T>(Component: React.ComponentType<T>) {
+  return function WithErrorBoundary(props: T): React.ReactNode {
     return (
       <ErrorBoundary>
         <Component {...props} />
@@ -44,7 +45,5 @@ export function withErrorBoundary(Component) {
     );
   };
 }
-
-withErrorBoundary();
 
 export default ErrorBoundary;
