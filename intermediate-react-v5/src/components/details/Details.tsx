@@ -1,15 +1,29 @@
 import React from "react";
-import PropTypes from "prop-types";
-import petAPI from "@frontendmasters/pet";
+import petAPI, { Photo } from "@frontendmasters/pet";
 
 import Carousel from "components/carousel";
 import Modal from "components/modal";
 import { withErrorBoundary } from "components/error-boundary";
 import { ThemeContext } from "hooks/theme";
-import { navigate } from "@reach/router";
+import { navigate, RouteComponentProps } from "@reach/router";
 
-class Details extends React.Component {
-  constructor(props) {
+type Props = RouteComponentProps<{ id: string }>;
+
+type State = {
+  isLoading: boolean;
+  hasApiError: boolean;
+  isModalOpen: boolean;
+  name?: string;
+  medias?: Photo[];
+  type?: string;
+  description?: string;
+  location?: string;
+  breed?: string;
+  url?: string;
+};
+
+class Details extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
 
     this.state = {
@@ -62,7 +76,7 @@ class Details extends React.Component {
   }
 
   adopt() {
-    navigate(this.state.url);
+    this.state.url && navigate(this.state.url);
   }
 
   render() {
@@ -139,9 +153,5 @@ class Details extends React.Component {
     );
   }
 }
-
-Details.propTypes = {
-  id: PropTypes.string,
-};
 
 export default withErrorBoundary(Details);
