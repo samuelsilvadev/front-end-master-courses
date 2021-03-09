@@ -154,4 +154,4 @@ class Details extends React.Component<Props, State> {
   }
 }
 
-export default withErrorBoundary(Details);
+export default withErrorBoundary<Props>(Details);
