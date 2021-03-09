@@ -10,7 +10,7 @@ import Header from "components/header";
 const Details = lazy(() => import("components/details"));
 
 const App = () => {
-  const theme = useState({ buttonColor: "green" });
+  const theme = useState<Record<string, string>>({ buttonColor: "green" });
 
   return (
     <React.StrictMode>

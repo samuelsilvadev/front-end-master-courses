@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, FunctionComponent } from "react";
 import petAPI, { Animal, ANIMALS } from "@frontendmasters/pet";
+
+import type { RouteComponentProps } from "@reach/router";
 
 import PetResults from "components/pet-results";
 
 import useDropdown from "hooks/use-dropdown";
 import { useTheme } from "hooks/theme";
 
-const SearchParams = (): JSX.Element => {
+const SearchParams: FunctionComponent<RouteComponentProps> = (): JSX.Element => {
   const [location, setLocation] = useState("Seattle, WA");
   const [breeds, setBreeds] = useState<string[]>([]);
   const [hasApiError, setApiError] = useState(false);

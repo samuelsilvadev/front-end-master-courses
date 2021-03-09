@@ -1,8 +1,8 @@
-import { createContext, useContext } from "react";
+import { createContext, Dispatch, SetStateAction, useContext } from "react";
 
 type ThemeContextType = [
   Record<string, string>,
-  (theme?: Record<string, string>) => void
+  Dispatch<SetStateAction<Record<string, string>>>
 ];
 
 export const ThemeContext = createContext<ThemeContextType>([
