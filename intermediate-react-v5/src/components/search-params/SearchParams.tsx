@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
-import petAPI, { ANIMALS } from "@frontendmasters/pet";
+import petAPI, { Animal, ANIMALS } from "@frontendmasters/pet";
 
 import PetResults from "components/pet-results";
 
 import useDropdown from "hooks/use-dropdown";
 import { useTheme } from "hooks/theme";
 
-const SearchParams = () => {
+const SearchParams = (): JSX.Element => {
   const [location, setLocation] = useState("Seattle, WA");
-  const [breeds, setBreeds] = useState([]);
+  const [breeds, setBreeds] = useState<string[]>([]);
   const [hasApiError, setApiError] = useState(false);
-  const [animals, setAnimals] = useState([]);
+  const [animals, setAnimals] = useState<Animal[]>([]);
   const [theme, setTheme] = useTheme();
 
   const [animal, AnimalDropdown] = useDropdown({
@@ -72,11 +72,11 @@ const SearchParams = () => {
     setAnimals(animals ?? []);
   };
 
-  const handleSetLocation = (event) => {
+  const handleSetLocation = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLocation(event.target.value);
   };
 
-  const handleAnimalSearchSubmit = (event) => {
+  const handleAnimalSearchSubmit = (event: React.FormEvent) => {
     event.preventDefault();
 
     getAnimals();
