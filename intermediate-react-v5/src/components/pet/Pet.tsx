@@ -3,13 +3,13 @@ import { Link } from "@reach/router";
 
 const DEFAULT_IMG_PLACEHOLDER = "http://placecorgi.com/300/300";
 
-interface Props {
+interface IProps {
   id: number;
   name: string;
   breed: string;
   medias: { small: string; medium: string; large: string; full: string }[];
   location: string;
-  type: number;
+  type: string;
 }
 
 const Pet = ({
@@ -19,7 +19,7 @@ const Pet = ({
   medias,
   location,
   type,
-}: Props): JSX.Element => {
+}: IProps): JSX.Element => {
   return (
     <Link to={`/details/${id}`} className="pet">
       <section>
