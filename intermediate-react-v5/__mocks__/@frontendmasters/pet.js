@@ -1,6 +1,5 @@
 const { readFileSync } = require("fs");
 const path = require("path");
-const { act } = require("@testing-library/react");
 
 const breeds = [
   { name: "Bichon Frise" },
