@@ -1,0 +1,13 @@
+{
+  "name": "2-exercise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Stack.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch --no-coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -5,10 +5,12 @@
   "main": "index.js",
   "private": true,
   "workspaces": [
-    "1-exercise"
+    "1-exercise",
+    "2-exercise"
   ],
   "scripts": {
-    "test": "echo \"Run the command in one of the internal packages\" && exit 1"
+    "test": "echo \"Run the command in one of the internal packages\" && exit 1",
+    "format": "prettier --white ."
   },
   "keywords": [],
   "author": "",
