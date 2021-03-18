@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "test": "echo \"Run the command in one of the internal packages\" && exit 1",
-    "format": "prettier --white ."
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
