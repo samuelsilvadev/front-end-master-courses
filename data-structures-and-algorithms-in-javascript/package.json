@@ -6,7 +6,8 @@
   "private": true,
   "workspaces": [
     "1-exercise",
-    "2-exercise"
+    "2-exercise",
+    "3-exercise"
   ],
   "scripts": {
     "test": "echo \"Run the command in one of the internal packages\" && exit 1",
