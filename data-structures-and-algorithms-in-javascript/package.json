@@ -7,7 +7,8 @@
   "workspaces": [
     "1-exercise",
     "2-exercise",
-    "3-exercise"
+    "3-exercise",
+    "recursion"
   ],
   "scripts": {
     "test": "echo \"Run the command in one of the internal packages\" && exit 1",

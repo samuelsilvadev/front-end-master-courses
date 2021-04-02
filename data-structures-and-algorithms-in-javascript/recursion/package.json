@@ -1,0 +1,13 @@
+{
+  "name": "recursion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "factorial.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch --no-coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
