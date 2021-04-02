@@ -1,51 +1,24 @@
-function _isNegativeZero(value) {
-	return 1 / value === -Infinity;
-}
-
-function findAll(value, values) {
+function findAll(match, values) {
 	const coerciveValues = [];
 
 	for (const valueItem of values) {
-		if (
-			(typeof value == "string" || typeof value == "number") &&
-			typeof valueItem != "string" &&
-			typeof valueItem != "number"
-		) {
-			continue;
-		}
-
-		if (
-			typeof value == "number" &&
-			typeof valueItem == "string" &&
-			valueItem == ""
-		) {
-			continue;
-		}
-
-		if (
-			typeof value == "string" &&
-			value == "" &&
-			typeof valueItem == "number"
-		) {
-			continue;
-		}
-
-		if (
-			(!_isNegativeZero(value) && _isNegativeZero(valueItem)) ||
-			(_isNegativeZero(value) && !_isNegativeZero(valueItem))
-		) {
-			continue;
-		}
-
-		if (typeof value == "boolean" && typeof valueItem != "boolean") {
-			continue;
-		}
-
-		if (
-			value == valueItem ||
-			(Number.isNaN(value) && Number.isNaN(valueItem))
-		) {
+		if (Object.is(match, valueItem)) {
 			coerciveValues.push(valueItem);
+		} else if (match == null && valueItem == null) {
+			coerciveValues.push(valueItem);
+		} else if (
+			(typeof match == "number" &&
+				!Object.is(match, -0) &&
+				typeof valueItem == "string" &&
+				valueItem.trim().length > 0) ||
+			(typeof valueItem == "number" &&
+				!Object.is(valueItem, -0) &&
+				typeof match == "string" &&
+				match.trim().length > 0)
+		) {
+			if (match == valueItem) {
+				coerciveValues.push(valueItem);
+			}
 		}
 	}
 
