@@ -1,7 +1,28 @@
 {
-  "user": {
-    "id": "jBWMVGjm50l6LGwepDoty",
-    "username": "frontendmaster"
-  },
-  "pet": []
+  "user": [
+    {
+      "id": "jUs_1y2xvmjLCPtll4xpf",
+      "createdAt": 1626809827997,
+      "username": "Luca 4"
+    },
+    {
+      "id": "3PUp8GNsxx9h5Uea1FhEa",
+      "createdAt": 1626809914597,
+      "username": "Luca 4"
+    }
+  ],
+  "pet": [
+    {
+      "id": "1",
+      "createdAt": 123412349812034,
+      "name": "Sam",
+      "type": "DOG"
+    },
+    {
+      "id": "2",
+      "createdAt": 123412349812034,
+      "name": "Lady",
+      "type": "CAT"
+    }
+  ]
 }
