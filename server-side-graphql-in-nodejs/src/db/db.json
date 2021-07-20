@@ -23,6 +23,12 @@
       "createdAt": 123412349812034,
       "name": "Lady",
       "type": "CAT"
+    },
+    {
+      "id": "iEPrgoNUqhs5E9HOHyXYv",
+      "createdAt": 1626810176788,
+      "name": "Dougao",
+      "type": "BIRD"
     }
   ]
 }

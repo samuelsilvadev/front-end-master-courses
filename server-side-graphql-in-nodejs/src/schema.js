@@ -30,6 +30,17 @@ const typeDefs = gql`
         username: String!
     }
 
+    input NewPetInput {
+        name: String!
+        type: String!
+    }
+
+    input UpdatePetInput {
+        id: ID!
+        name: String
+        type: String
+    }
+
     type Query {
         user(input: UserInput): User!
         allUsers(input: UserInput): [User]!
@@ -39,6 +50,9 @@ const typeDefs = gql`
 
     type Mutation {
         newUser(input: NewUserInput!): User!
+        newPet(input: NewPetInput!): Pet!
+        updatePet(input: UpdatePetInput): Pet!
+        deletePet(id: ID): ID!
     }
 `;
 

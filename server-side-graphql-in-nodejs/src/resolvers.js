@@ -18,6 +18,15 @@ module.exports = {
   Mutation: {
     newUser(_, {input}) {
       return models.User.create(input);
+    },
+    newPet(_ , {input}) {
+      return models.Pet.create(input);
+    },
+    updatePet(_, {input}) {
+      return models.Pet.update(input);
+    },
+    deletePet(_, {id}) {
+      return models.Pet.delete(id);
     }
   }
 }
