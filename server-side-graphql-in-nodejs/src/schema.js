@@ -16,6 +16,22 @@ const typeDefs = gql`
         type: String
     }
 
+    union Footwear = Sneaker | Boots
+
+    interface Shoe {
+        brand: String!
+    }
+
+    type Sneaker implements Shoe {
+        brand: String!
+        color: String!
+    }
+
+    type Boots implements Shoe {
+        brand: String!
+        size: Int!
+    }
+
     input UserInput {
         id: ID
         username: String
@@ -46,6 +62,7 @@ const typeDefs = gql`
         allUsers(input: UserInput): [User]!
         pet(input: PetInput): Pet 
         allPets(input: PetInput): [Pet]!
+        allShoes: [Footwear]!
     }
 
     type Mutation {
