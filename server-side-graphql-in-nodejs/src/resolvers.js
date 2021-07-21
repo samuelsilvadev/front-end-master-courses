@@ -41,6 +41,14 @@ module.exports = {
       return models.Pet.delete(id);
     }
   },
+  User: {
+    shoe(user) {
+      return {
+        brand: 'N21',
+        size: 12,
+      }
+    }
+  },
   Shoe: {
     __resolveType(shoe) {
       if (shoe.color) {
