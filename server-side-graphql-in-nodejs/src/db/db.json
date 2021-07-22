@@ -1,0 +1,42 @@
+{
+  "user": [
+    {
+      "id": "jUs_1y2xvmjLCPtll4xpf",
+      "createdAt": 1626809827997,
+      "username": "Luca 4",
+      "pet": "1"
+    },
+    {
+      "id": "3PUp8GNsxx9h5Uea1FhEa",
+      "createdAt": 1626809914597,
+      "username": "Sam",
+      "pet": "iEPrgoNUqhs5E9HOHyXYv"
+    },
+    {
+      "id": "3",
+      "createdAt": 1626809914597,
+      "username": "Katty",
+      "pet": "2"
+    }
+  ],
+  "pet": [
+    {
+      "id": "1",
+      "createdAt": 123412349812034,
+      "name": "Sam",
+      "type": "DOG"
+    },
+    {
+      "id": "2",
+      "createdAt": 123412349812034,
+      "name": "Lady",
+      "type": "CAT"
+    },
+    {
+      "id": "iEPrgoNUqhs5E9HOHyXYv",
+      "createdAt": 1626810176788,
+      "name": "Dougao",
+      "type": "BIRD"
+    }
+  ]
+}
