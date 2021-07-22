@@ -8,6 +8,7 @@ const typeDefs = gql`
         id: ID
         username: String
         shoe: Shoe!
+        pets: [Pet]
     }
 
     type Pet {
@@ -15,6 +16,7 @@ const typeDefs = gql`
         createdAt: Int
         name: String
         type: String
+        owner: User!
     }
 
     union Footwear = Sneaker | Boots

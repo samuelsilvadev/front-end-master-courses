@@ -47,6 +47,14 @@ module.exports = {
         brand: 'N21',
         size: 12,
       }
+    },
+    pets(user) {
+      return models.Pet.findMany({ id: user.pet });
+    }
+  },
+  Pet: {
+    owner(pet) {
+      return models.User.findOne({ pet: pet.id })
     }
   },
   Shoe: {
