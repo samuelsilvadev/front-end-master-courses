@@ -15,7 +15,7 @@
 	"dependencies": {
 		"@theme-ui/presets": "^0.3.5",
 		"body-parser": "^1.19.0",
-		"next": "^9.5.4",
+		"next": "^11.1.0",
 		"next-connect": "^0.8.1",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
